@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Poffs 023 - Bestellen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Poffs 023</div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h1>Welkom bij Poffs 023</h1>
+            <p>Bekijk onze beschikbare producten en plaats eenvoudig je bestelling.</p>
+        </section>
+
+        <section class="product-list">
+            <h2>Beschikbare Producten</h2>
+            <div id="product-container"></div>
+        </section>
+
+        <section class="order-form">
+            <h2>Bestelformulier</h2>
+            <form action="https://formspree.io/f/xyzezajj" method="POST">
+                <label for="name">Naam</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="snapchat">Snapchat @</label>
+                <input type="text" id="snapchat" name="snapchat" required>
+
+                <label for="quantity">Aantal producten</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required onchange="updateProductFields()">
+
+                <div id="product-selection"></div>
+
+                <label for="time">Ophaaltijd</label>
+                <input type="time" id="time" name="time" required min="09:00" max="23:00">
+
+                <label for="comments">Opmerkingen</label>
+                <textarea id="comments" name="comments"></textarea>
+
+                <div id="total-price">Totale prijs: €0</div>
+                <button type="submit">Bestelling plaatsen</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Poffs 023 - Schoolproject, niet commercieel.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
