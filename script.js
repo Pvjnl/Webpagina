@@ -50,9 +50,4 @@ function generateProductList() {
 
 // Toon/verberg smaken bij klikken op merk
 function toggleVisibility(merkDiv) {
-    const smakenList = merkDiv.querySelector('.smaken-lijst');
-    smakenList.style.display = smakenList.style.display === 'none' ? 'block' : 'none';
-}
-
-// Start de productlijst
-window.onload = generateProductList;
+    const smakenList = merkDiv.querySelector('.smaken-lijst
