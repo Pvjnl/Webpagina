@@ -3,69 +3,122 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #f4f4f8;
-    color: #333;
+    background-color: #222831;
+    color: #EEEEEE;
     line-height: 1.6;
 }
 
+/* Header */
 header {
-    background: #4a90e2;
-    color: #fff;
+    background-color: #393E46;
+    padding: 15px;
     text-align: center;
-    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ADB5;
 }
 
-main {
-    max-width: 600px;
-    margin: 20px auto;
+/* Intro sectie */
+.intro {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 32px;
+    color: #00ADB5;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Producten sectie */
+.product-list {
     padding: 20px;
-    background: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background: #393E46;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+}
+
+.product-card h3 {
+    color: #00ADB5;
+}
+
+/* Bestelformulier */
+.order-form {
+    background: #393E46;
+    padding: 30px;
+    max-width: 400px;
+    margin: 30px auto;
     border-radius: 8px;
 }
 
-/* Productlijst */
-.product-brand {
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
+.order-form h2 {
+    text-align: center;
+    color: #00ADB5;
 }
 
-.toggle-button {
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea, form select {
     width: 100%;
-    background: #4a90e2;
-    color: white;
     padding: 10px;
+    margin-bottom: 10px;
     border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 16px;
+    border-radius: 4px;
+    background: #222831;
+    color: #EEEEEE;
 }
 
-.toggle-button:hover {
-    background: #357ab8;
-}
-
-.smaken-lijst {
-    list-style: none;
+button {
+    width: 100%;
     padding: 10px;
-    background: #f8f8f8;
+    background: #00ADB5;
+    border: none;
+    color: #222831;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.smaken-lijst li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+button:hover {
+    background: #008C9E;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #4a90e2;
-    color: #fff;
-    margin-top: 20px;
+    background: #222831;
+    margin-top: 40px;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .order-form {
+        max-width: 90%;
+    }
 }
