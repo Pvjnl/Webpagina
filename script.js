@@ -35,6 +35,38 @@ document.addEventListener("DOMContentLoaded", function () {
 //     }
 // }
 
+function generateProductList() {
+    const container = document.getElementById('products-container');
+    container.innerHTML = ''; // Leeg de container
+
+    Object.entries(products).forEach(([merk, smaken]) => {
+        const merkDiv = document.createElement('div');
+        merkDiv.classList.add('product-brand');
+
+        // Merkknop
+        const merkButton = document.createElement('button');
+        merkButton.classList.add('toggle-button');
+        merkButton.textContent = merk;
+        merkButton.onclick = () => toggleVisibility(merkDiv);
+
+        // Smakenlijst (verborgen)
+        const smakenList = document.createElement('ul');
+        smakenList.classList.add('smaken-lijst');
+        smakenList.style.display = 'none';
+
+        Object.entries(smaken).forEach(([smaak, prijs]) => {
+            const smaakItem = document.createElement('li');
+            smaakItem.textContent = `${smaak} - €${prijs}`;
+            smakenList.appendChild(smaakItem);
+        });
+
+        // Voeg toe aan de DOM
+        merkDiv.appendChild(merkButton);
+        merkDiv.appendChild(smakenList);
+        container.appendChild(merkDiv);
+    });
+}
+
 // 🚀 Update de smakenlijst gebaseerd op het gekozen merk
 function updateFlavors(selectElement) {
     const merk = selectElement.value;
