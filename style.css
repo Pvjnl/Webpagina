@@ -94,7 +94,7 @@ form input, form textarea, form select {
 }
 
 #total-price {
-    padding: 10px;
+    padding-bottom: 15px;
 }
 
 button {
