@@ -29,9 +29,9 @@ function generateProductList() {
         }
 
         // Toggle functionaliteit om smaken te tonen/verbergen
-        merkElement.querySelector('h3').addEventListener('click', function () {
-            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
-        });
+        // merkElement.querySelector('h3').addEventListener('click', function () {
+        //     smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
+        // });
     }
 }
 
