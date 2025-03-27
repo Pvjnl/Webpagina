@@ -20,11 +20,11 @@ function generateProductList() {
         const merkElement = document.createElement('div');
         merkElement.classList.add('merk');
         
-        // Voeg een pijl toe naast het merk
+        // Voeg een pijl als driehoek toe naast het merk
         merkElement.innerHTML = `
             <h3>
                 ${merk}
-                <span class="arrow">↓</span> <!-- Pijl toegevoegd -->
+                <span class="arrow"></span> <!-- Driehoek pijl toegevoegd -->
             </h3>
             <ul class="smaken-lijst" style="display: none;"></ul>
         `;
@@ -41,7 +41,7 @@ function generateProductList() {
         merkElement.querySelector('h3').addEventListener('click', function () {
             const isVisible = smakenLijst.style.display === "block";
             smakenLijst.style.display = isVisible ? "none" : "block"; // Verander zichtbaarheid
-            arrow.textContent = isVisible ? "↓" : "↑"; // Verander pijl
+            merkElement.classList.toggle('open'); // Draai de pijl
         });
     }
 }
