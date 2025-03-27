@@ -72,17 +72,3 @@ document.querySelector("form").onsubmit = function(event) {
         alert("Je moet minstens één product kiezen voordat je kunt bestellen!");
     }
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-
-    form.addEventListener("submit", function (event) {
-        const totalPriceText = document.getElementById("total-price").innerText;
-        const totalPrice = parseFloat(totalPriceText.replace("Totale prijs: €", ""));
-
-        if (totalPrice < 15) {
-            alert("Het minimale bestelbedrag is €15. Voeg meer producten toe om door te gaan.");
-            event.preventDefault(); // Voorkomt dat het formulier wordt verzonden
-        }
-    });
-});
