@@ -12,28 +12,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 🚀 Genereer de productlijst en toon deze op de pagina
-function generateProductList() {
-    const productContainer = document.getElementById('product-container');
-    productContainer.innerHTML = '';
+// function generateProductList() {
+//     const productContainer = document.getElementById('product-container');
+//     productContainer.innerHTML = '';
 
-    for (const [merk, smaken] of Object.entries(infoData)) {
-        const merkElement = document.createElement('div');
-        merkElement.classList.add('merk');
-        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
-        productContainer.appendChild(merkElement);
+//     for (const [merk, smaken] of Object.entries(infoData)) {
+//         const merkElement = document.createElement('div');
+//         merkElement.classList.add('merk');
+//         merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+//         productContainer.appendChild(merkElement);
 
-        const smakenLijst = merkElement.querySelector('.smaken-lijst');
+//         const smakenLijst = merkElement.querySelector('.smaken-lijst');
 
-        for (const [smaak, prijs] of Object.entries(smaken)) {
-            smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
-        }
+//         for (const [smaak, prijs] of Object.entries(smaken)) {
+//             smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
+//         }
 
-        // Toggle functionaliteit om smaken te tonen/verbergen
-        // merkElement.querySelector('h3').addEventListener('click', function () {
-        //     smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
-        // });
-    }
-}
+//         // Toggle functionaliteit om smaken te tonen/verbergen
+//         // merkElement.querySelector('h3').addEventListener('click', function () {
+//         //     smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
+//         // });
+//     }
+// }
 
 // 🚀 Update de smakenlijst gebaseerd op het gekozen merk
 function updateFlavors(selectElement) {
