@@ -1,0 +1,142 @@
+/* Algemene stijl */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html, body {
+    height: 100%; /* Zorgt ervoor dat de body de volledige hoogte van het scherm gebruikt */
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: ##222831; /* Donkerblauw-grijs */
+    color: #EEEEEE; /* Lichte tekst */
+    line-height: 1.6;
+}
+
+#CybotCookiebotDialogHeader, .CybotCookiebotDialogDetailBodyContentCookieLink, .CookiebotWidget-main-logo {
+    display: none !important;
+}
+
+/* Navigatie */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282a36;
+    padding: 30px 20px; /* Breedte correct afgestemd */
+    width: 100%;
+        /* max-width: 108.8rem; /* Houdt het consistent */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Navigatie links */
+.nav-left {
+    position: absolute;
+    left: 20px; /* Zet het logo helemaal links */
+}
+
+.nav-left img {
+    height: 50px;
+    width: auto;
+    border-radius: 50%; /* Ronde vorm */
+}
+
+/* Navigatie midden */
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-center h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Navigatie rechts */
+.nav-right {
+    position: absolute;
+    right: 20px; /* Zet het logo helemaal links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #ecf0f1;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #bd93f9; /* Blauw voor hover */
+}
+
+/* main */
+
+main {
+    flex: 1; /* Zorgt ervoor dat main alle beschikbare ruimte opvult */
+}
+
+.not-found {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Zorgt ervoor dat het de volledige hoogte gebruikt */
+}
+
+.not-found h1 {
+    font-size: 5rem;
+    color: #ffffff;
+}
+
+.not-found p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.not-found a {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 20px;
+/*     background-color: #3498db; */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    border: 1px solid #bd93f9;
+}
+
+.not-found a:hover {
+    background-color: #bd93f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #282a36;
+    width: 100%;
+    color: #bdc3c7;
+}
+
+/* footer p {
+    font-size: 1rem;
+    color: #bdc3c7;
+} */
+
+/* Animaties */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
