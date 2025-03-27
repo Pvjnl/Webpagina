@@ -18,7 +18,7 @@ function generateProductList() {
     for (const [merk, smaken] of Object.entries(infoData)) {
         const merkElement = document.createElement('div');
         merkElement.classList.add('merk');
-        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        merkElement.innerHTML = `<h3>${merk} ▼</h3><ul class="smaken-lijst"></ul>`;
         productContainer.appendChild(merkElement);
 
         const smakenLijst = merkElement.querySelector('.smaken-lijst');
@@ -29,7 +29,9 @@ function generateProductList() {
 
         // Toggle functionaliteit om smaken te tonen/verbergen
         merkElement.querySelector('h3').addEventListener('click', function () {
-            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
+            const isVisible = smakenLijst.style.display === "block";
+            document.querySelectorAll('.smaken-lijst').forEach(list => list.style.display = "none"); // Sluit andere open lijsten
+            smakenLijst.style.display = isVisible ? "none" : "block";
         });
     }
 }
