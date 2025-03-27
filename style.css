@@ -92,6 +92,10 @@ form input, form textarea, form select {
     color: #EEEEEE;
 }
 
+.total-price {
+    padding: 10px;
+}
+
 button {
     width: 100%;
     padding: 10px;
@@ -105,6 +109,10 @@ button {
 
 button:hover {
     background: #008C9E;
+}
+
+.contant {
+    justify-content: center;
 }
 
 /* Footer */
