@@ -5,10 +5,10 @@ const infoData = {
 };
 
 // 🚀 Zorg ervoor dat de velden juist worden weergegeven bij het laden van de pagina
-window.onload = function() {
-    alert("Let op: Deze website is alleen voor informatieve doeleinden en verkoopt geen producten.");
-    updateProductFields();
-};
+// window.onload = function() {
+//     alert("Let op: Deze website is alleen voor informatieve doeleinden en verkoopt geen producten.");
+//     updateProductFields();
+// };
 
 function updateFlavors(selectElement) {
     const merk = selectElement.value;
