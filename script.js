@@ -4,12 +4,37 @@ const infoData = {
     "Merk 3": { "Smaak 1 merk 3": 30, "Smaak 2 merk 3": 30 },
 };
 
-// 🚀 Zorg ervoor dat de velden juist worden weergegeven bij het laden van de pagina
-window.onload = function() {
-    alert("Let op: Deze website is alleen voor informatieve doeleinden en verkoopt geen producten.");
+// 🚀 Laad producten en update velden direct bij het openen van de pagina
+document.addEventListener("DOMContentLoaded", function () {
+    generateProductList();
     updateProductFields();
-};
+});
 
+// 🚀 Genereer de productlijst en toon deze op de pagina
+function generateProductList() {
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = '';
+
+    for (const [merk, smaken] of Object.entries(infoData)) {
+        const merkElement = document.createElement('div');
+        merkElement.classList.add('merk');
+        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        productContainer.appendChild(merkElement);
+
+        const smakenLijst = merkElement.querySelector('.smaken-lijst');
+
+        for (const [smaak, prijs] of Object.entries(smaken)) {
+            smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
+        }
+
+        // Toggle functionaliteit om smaken te tonen/verbergen
+        merkElement.querySelector('h3').addEventListener('click', function () {
+            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
+        });
+    }
+}
+
+// 🚀 Update de smakenlijst gebaseerd op het gekozen merk
 function updateFlavors(selectElement) {
     const merk = selectElement.value;
     const flavorSelect = selectElement.closest('.product-group').querySelector('.flavor-select');
@@ -24,6 +49,7 @@ function updateFlavors(selectElement) {
     updateTotalPrice();
 }
 
+// 🚀 Update het aantal productvelden op basis van de input
 function updateProductFields() {
     const quantity = parseInt(document.getElementById('quantity').value);
     const productSelection = document.getElementById('product-selection');
@@ -51,6 +77,7 @@ function updateProductFields() {
     updateTotalPrice();
 }
 
+// 🚀 Bereken en toon de totaalprijs
 function updateTotalPrice() {
     let totalPrice = 0;
     document.querySelectorAll('.product-group').forEach(group => {
@@ -65,10 +92,13 @@ function updateTotalPrice() {
     document.getElementById('total-price').innerText = `Totale prijs: €${totalPrice}`;
 }
 
-// 🚀 Formulier voorkomt per ongeluk verzenden als er nog lege velden zijn
+// 🚀 Zorg ervoor dat het formulier niet verzonden wordt als het totaalbedrag te laag is
 document.querySelector("form").onsubmit = function(event) {
-    if (document.querySelectorAll('.brand-select').length === 0) {
+    const totalPriceText = document.getElementById("total-price").innerText;
+    const totalPrice = parseFloat(totalPriceText.replace("Totale prijs: €", ""));
+
+    if (totalPrice < 15) {
+        alert("Het minimale bestelbedrag is €15. Voeg meer producten toe om door te gaan.");
         event.preventDefault();
-        alert("Je moet minstens één product kiezen voordat je kunt bestellen!");
     }
 };
