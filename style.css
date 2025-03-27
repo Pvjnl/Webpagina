@@ -37,14 +37,22 @@ header {
     cursor: pointer;
 }
 
+/* Pijl stijl */
+.arrow {
+    font-size: 20px;
+    margin-left: 10px;
+    transition: transform 0.3s ease; /* Zorg voor een vloeiende overgang */
+}
+
 .merk h3 {
+    display: inline-block; /* Zorg ervoor dat de pijl naast de tekst staat */
     margin: 0;
     font-size: 18px;
 }
 
 .smaken-lijst {
-    display: none;
-    background-color: #333; /* Iets lichtere grijs */
+    display: none; /* Lijst is standaard verborgen */
+    background-color: #333;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
@@ -53,7 +61,7 @@ header {
 .smaken-lijst li {
     list-style: none;
     padding: 5px 0;
-    color: #ccc; /* Lichtgrijze tekst */
+    color: #ccc;
 }
 
 h1 {
