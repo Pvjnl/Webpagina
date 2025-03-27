@@ -17,27 +17,24 @@ function generateProductList() {
     productContainer.innerHTML = '';
 
     for (const [merk, smaken] of Object.entries(infoData)) {
-        // Maak een product-card aan
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-        productCard.innerHTML = `<h3>${merk} ▼</h3><ul class="smaken-lijst"></ul>`;
-        productContainer.appendChild(productCard);
+        const merkElement = document.createElement('div');
+        merkElement.classList.add('merk');
+        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        productContainer.appendChild(merkElement);
 
-        // De lijst met smaken
-        const smakenLijst = productCard.querySelector('.smaken-lijst');
+        const smakenLijst = merkElement.querySelector('.smaken-lijst');
 
         for (const [smaak, prijs] of Object.entries(smaken)) {
             smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
         }
 
         // Toggle functionaliteit om smaken te tonen/verbergen
-        productCard.querySelector('h3').addEventListener('click', function () {
-            const isVisible = smakenLijst.style.display === "block";
-            document.querySelectorAll('.smaken-lijst').forEach(list => list.style.display = "none"); // Sluit andere open lijsten
-            smakenLijst.style.display = isVisible ? "none" : "block";
+        merkElement.querySelector('h3').addEventListener('click', function () {
+            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
         });
     }
 }
+
 // 🚀 Update de smakenlijst gebaseerd op het gekozen merk
 function updateFlavors(selectElement) {
     const merk = selectElement.value;
