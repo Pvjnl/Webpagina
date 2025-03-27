@@ -2,6 +2,7 @@ const infoData = {
     "Merk 1": { "Smaak 1 merk 1": 15, "Smaak 2 merk 1": 15 },
     "Merk 2": { "Smaak 1 merk 2": 20, "Smaak 2 merk 2": 20 },
     "Merk 3": { "Smaak 1 merk 3": 30, "Smaak 2 merk 3": 30 },
+    "Marlboro": { "Red": 5, "Gold": 5, "Slof" 45},
 };
 
 // 🚀 Laad producten en update velden direct bij het openen van de pagina
@@ -16,26 +17,27 @@ function generateProductList() {
     productContainer.innerHTML = '';
 
     for (const [merk, smaken] of Object.entries(infoData)) {
-        const merkElement = document.createElement('div');
-        merkElement.classList.add('merk');
-        merkElement.innerHTML = `<h3>${merk} ▼</h3><ul class="smaken-lijst"></ul>`;
-        productContainer.appendChild(merkElement);
+        // Maak een product-card aan
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `<h3>${merk} ▼</h3><ul class="smaken-lijst"></ul>`;
+        productContainer.appendChild(productCard);
 
-        const smakenLijst = merkElement.querySelector('.smaken-lijst');
+        // De lijst met smaken
+        const smakenLijst = productCard.querySelector('.smaken-lijst');
 
         for (const [smaak, prijs] of Object.entries(smaken)) {
             smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
         }
 
         // Toggle functionaliteit om smaken te tonen/verbergen
-        merkElement.querySelector('h3').addEventListener('click', function () {
+        productCard.querySelector('h3').addEventListener('click', function () {
             const isVisible = smakenLijst.style.display === "block";
             document.querySelectorAll('.smaken-lijst').forEach(list => list.style.display = "none"); // Sluit andere open lijsten
             smakenLijst.style.display = isVisible ? "none" : "block";
         });
     }
 }
-
 // 🚀 Update de smakenlijst gebaseerd op het gekozen merk
 function updateFlavors(selectElement) {
     const merk = selectElement.value;
