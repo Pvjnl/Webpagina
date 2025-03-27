@@ -28,34 +28,6 @@ header {
     padding: 40px 20px;
 }
 
-.merk {
-    background-color: #222; /* Donkergrijze achtergrond */
-    color: #fff; /* Witte tekst */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.merk h3 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.smaken-lijst {
-    display: none;
-    background-color: #333; /* Iets lichtere grijs */
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-}
-
-.smaken-lijst li {
-    list-style: none;
-    padding: 5px 0;
-    color: #ccc; /* Lichtgrijze tekst */
-}
-
 h1 {
     font-size: 32px;
     color: #00ADB5;
@@ -79,16 +51,49 @@ p {
     margin-top: 20px;
 }
 
+/* Productkaart */
 .product-card {
     background: #393E46;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
     width: 200px;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Product titel */
 .product-card h3 {
     color: #00ADB5;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Smaken dropdown */
+.smaken-lijst {
+    display: none;
+    background-color: #333; /* Iets lichtere grijs */
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.smaken-lijst li {
+    list-style: none;
+    padding: 5px;
+    color: #ccc;
+    cursor: pointer;
+    text-align: left;
+}
+
+.smaken-lijst li:hover {
+    background: #00ADB5;
+    color: #222831;
 }
 
 /* Bestelformulier */
@@ -123,6 +128,9 @@ form input, form textarea, form select {
 
 #total-price {
     padding-bottom: 15px;
+    font-weight: bold;
+    color: #00ADB5;
+    text-align: center;
 }
 
 button {
@@ -144,6 +152,8 @@ button:hover {
     justify-content: center;
     padding: 15px;
     display: flex;
+    font-weight: bold;
+    color: #00ADB5;
 }
 
 /* Footer */
