@@ -19,10 +19,19 @@ function generateProductList() {
     for (const [merk, smaken] of Object.entries(infoData)) {
         const merkElement = document.createElement('div');
         merkElement.classList.add('merk');
-        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        
+        // Voeg een pijl toe naast het merk
+        merkElement.innerHTML = `
+            <h3>
+                ${merk}
+                <span class="arrow">↓</span> <!-- Pijl toegevoegd -->
+            </h3>
+            <ul class="smaken-lijst" style="display: none;"></ul>
+        `;
         productContainer.appendChild(merkElement);
 
         const smakenLijst = merkElement.querySelector('.smaken-lijst');
+        const arrow = merkElement.querySelector('.arrow'); // Selecteer de pijl
 
         for (const [smaak, prijs] of Object.entries(smaken)) {
             smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
@@ -30,7 +39,9 @@ function generateProductList() {
 
         // Toggle functionaliteit om smaken te tonen/verbergen
         merkElement.querySelector('h3').addEventListener('click', function () {
-            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
+            const isVisible = smakenLijst.style.display === "block";
+            smakenLijst.style.display = isVisible ? "none" : "block"; // Verander zichtbaarheid
+            arrow.textContent = isVisible ? "↓" : "↑"; // Verander pijl
         });
     }
 }
