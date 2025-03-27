@@ -12,59 +12,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 🚀 Genereer de productlijst en toon deze op de pagina
-// function generateProductList() {
-//     const productContainer = document.getElementById('product-container');
-//     productContainer.innerHTML = '';
-
-//     for (const [merk, smaken] of Object.entries(infoData)) {
-//         const merkElement = document.createElement('div');
-//         merkElement.classList.add('merk');
-//         merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
-//         productContainer.appendChild(merkElement);
-
-//         const smakenLijst = merkElement.querySelector('.smaken-lijst');
-
-//         for (const [smaak, prijs] of Object.entries(smaken)) {
-//             smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
-//         }
-
-//         // Toggle functionaliteit om smaken te tonen/verbergen
-//         // merkElement.querySelector('h3').addEventListener('click', function () {
-//         //     smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
-//         // });
-//     }
-// }
-
 function generateProductList() {
-    const container = document.getElementById('products-container');
-    container.innerHTML = ''; // Leeg de container
+    const productContainer = document.getElementById('product-container');
+    productContainer.innerHTML = '';
 
-    Object.entries(products).forEach(([merk, smaken]) => {
-        const merkDiv = document.createElement('div');
-        merkDiv.classList.add('product-brand');
+    for (const [merk, smaken] of Object.entries(infoData)) {
+        const merkElement = document.createElement('div');
+        merkElement.classList.add('merk');
+        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        productContainer.appendChild(merkElement);
 
-        // Merkknop
-        const merkButton = document.createElement('button');
-        merkButton.classList.add('toggle-button');
-        merkButton.textContent = merk;
-        merkButton.onclick = () => toggleVisibility(merkDiv);
+        const smakenLijst = merkElement.querySelector('.smaken-lijst');
 
-        // Smakenlijst (verborgen)
-        const smakenList = document.createElement('ul');
-        smakenList.classList.add('smaken-lijst');
-        smakenList.style.display = 'none';
+        for (const [smaak, prijs] of Object.entries(smaken)) {
+            smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
+        }
 
-        Object.entries(smaken).forEach(([smaak, prijs]) => {
-            const smaakItem = document.createElement('li');
-            smaakItem.textContent = `${smaak} - €${prijs}`;
-            smakenList.appendChild(smaakItem);
+        Toggle functionaliteit om smaken te tonen/verbergen
+        merkElement.querySelector('h3').addEventListener('click', function () {
+            smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
         });
-
-        // Voeg toe aan de DOM
-        merkDiv.appendChild(merkButton);
-        merkDiv.appendChild(smakenList);
-        container.appendChild(merkDiv);
-    });
+    }
 }
 
 // 🚀 Update de smakenlijst gebaseerd op het gekozen merk
