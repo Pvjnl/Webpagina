@@ -37,11 +37,19 @@ header {
     cursor: pointer;
 }
 
-/* Pijl stijl */
 .arrow {
-    font-size: 20px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #00ADB5; /* Omlaag wijzende driehoek */
     margin-left: 10px;
     transition: transform 0.3s ease; /* Zorg voor een vloeiende overgang */
+}
+
+/* Wanneer de lijst uitklapt, draai de driehoek om naar boven */
+.merk.open .arrow {
+    transform: rotate(180deg); /* Draai de driehoek */
 }
 
 .merk h3 {
