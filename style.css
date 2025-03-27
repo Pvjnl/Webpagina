@@ -38,28 +38,19 @@ header {
 }
 
 .arrow {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid #00ADB5; /* Omlaag wijzende driehoek */
+    font-size: 20px;
     margin-left: 10px;
     transition: transform 0.3s ease; /* Zorg voor een vloeiende overgang */
 }
 
-/* Wanneer de lijst uitklapt, draai de driehoek om naar boven */
-.merk.open .arrow {
-    transform: rotate(180deg); /* Draai de driehoek */
-}
-
 .merk h3 {
-    display: inline-block; /* Zorg ervoor dat de pijl naast de tekst staat */
+    display: inline-block;
     margin: 0;
     font-size: 18px;
 }
 
 .smaken-lijst {
-    display: none; /* Lijst is standaard verborgen */
+    display: none;
     background-color: #333;
     padding: 10px;
     margin-top: 5px;
