@@ -2,7 +2,7 @@ const infoData = {
     "Merk 1": { "Smaak 1 merk 1": 15, "Smaak 2 merk 1": 15 },
     "Merk 2": { "Smaak 1 merk 2": 20, "Smaak 2 merk 2": 20 },
     "Merk 3": { "Smaak 1 merk 3": 30, "Smaak 2 merk 3": 30 },
-    "Marlboro": { "Red": 5, "Gold": 5, "Slof" 45},
+    "Marlboro": { "Red": 5, "Gold": 5, "Slof": 45},
 };
 
 // 🚀 Laad producten en update velden direct bij het openen van de pagina
