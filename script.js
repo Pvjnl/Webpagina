@@ -19,16 +19,16 @@ function generateProductList() {
     for (const [merk, smaken] of Object.entries(infoData)) {
         const merkElement = document.createElement('div');
         merkElement.classList.add('merk');
-        merkElement.innerHTML = `<h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>`;
+        merkElement.innerHTML = <h3>${merk}</h3><ul class="smaken-lijst" style="display: none;"></ul>;
         productContainer.appendChild(merkElement);
 
         const smakenLijst = merkElement.querySelector('.smaken-lijst');
 
         for (const [smaak, prijs] of Object.entries(smaken)) {
-            smakenLijst.innerHTML += `<li>${smaak} - €${prijs}</li>`;
+            smakenLijst.innerHTML += <li>${smaak} - €${prijs}</li>;
         }
 
-        Toggle functionaliteit om smaken te tonen/verbergen
+        // Toggle functionaliteit om smaken te tonen/verbergen
         merkElement.querySelector('h3').addEventListener('click', function () {
             smakenLijst.style.display = smakenLijst.style.display === "none" ? "block" : "none";
         });
@@ -43,7 +43,7 @@ function updateFlavors(selectElement) {
 
     if (merk && infoData[merk]) {
         for (const [smaak, prijs] of Object.entries(infoData[merk])) {
-            flavorSelect.innerHTML += `<option value="${smaak}" data-price="${prijs}">${smaak}</option>`;
+            flavorSelect.innerHTML += <option value="${smaak}" data-price="${prijs}">${smaak}</option>;
         }
     }
 
@@ -59,18 +59,18 @@ function updateProductFields() {
     for (let i = 1; i <= quantity; i++) {
         const productGroup = document.createElement('div');
         productGroup.classList.add('product-group');
-        productGroup.innerHTML = `
+        productGroup.innerHTML = 
             <label for="brand${i}">Merk voor product ${i}:</label>
             <select class="brand-select" id="brand${i}" name="brand${i}" required onchange="updateFlavors(this)">
                 <option value="">Kies een merk</option>
-                ${Object.keys(infoData).map(merk => `<option value="${merk}">${merk}</option>`).join('')}
+                ${Object.keys(infoData).map(merk => <option value="${merk}">${merk}</option>).join('')}
             </select>
 
             <label for="product${i}">Smaak voor product ${i}:</label>
             <select class="flavor-select" id="product${i}" name="product${i}" required onchange="updateTotalPrice()">
                 <option value="">Kies een smaak</option>
             </select>
-        `;
+        ;
 
         productSelection.appendChild(productGroup);
     }
@@ -90,7 +90,7 @@ function updateTotalPrice() {
         }
     });
 
-    document.getElementById('total-price').innerText = `Totale prijs: €${totalPrice}`;
+    document.getElementById('total-price').innerText = Totale prijs: €${totalPrice};
 }
 
 // 🚀 Zorg ervoor dat het formulier niet verzonden wordt als het totaalbedrag te laag is
