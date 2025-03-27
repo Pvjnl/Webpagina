@@ -1,7 +1,7 @@
 const infoData = {
-    "RandM Tornado 15k": { "Apple Peach Pear": 15, "Blue Razz Cherry": 15 },
-    "RandM Tornado 30k": { "Love 66": 20, "Lush Ice": 20 },
-    "JNR MediaMax 40k": { "Blue Razz Ice": 30, "Mixed Berry": 30 },
+    "Merk 1": { "Smaak 1 merk 1": 15, "Smaak 2 merk 1": 15 },
+    "Merk 2": { "Smaak 1 merk 2": 20, "Smaak 2 merk 2": 20 },
+    "Merk 3": { "Smaak 1 merk 3": 30, "Smaak 2 merk 3": 30 },
 };
 
 function generateProductList() {
